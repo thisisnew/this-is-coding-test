@@ -2,7 +2,7 @@ package ch05;
 
 import java.util.Scanner;
 
-public class ex10 {
+public class Dfs {
 	
 	public static int n, m;
 	public static int[][] graph = new int[1000][1000];

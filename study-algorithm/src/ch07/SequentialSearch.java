@@ -1,4 +1,4 @@
-package Ch07;
+package ch07;
 
 public class SequentialSearch {
 	

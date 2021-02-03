@@ -7,15 +7,36 @@ import java.util.Queue;
 
 public class Ex9 {
 	
-	static List<List<Integer>> list = new ArrayList<List<Integer>>();
-	static boolean[] isVisited = new boolean[9];
+	public static boolean[] isVisited = new boolean[9];
+	public static List<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+	
+	public static void bfs(int number) {
+		Queue<Integer> q = new LinkedList<Integer>();
+		q.offer(number);
+		
+		isVisited[number] = true;
+				
+		while(!q.isEmpty()) {
+			int x = q.poll();
+			
+			System.out.print(x + " ");
+			
+			List<Integer> temp = list.get(x);
+			
+			for(int v : temp) {
+				if(!isVisited[v]) {
+					q.offer(v);
+					isVisited[v] = true;
+				}
+			}
+		}
+	}
 	
 	public static void main(String[] args) {
 		
-		for(int i = 0; i < 9; i++) {
+		for(int i=0; i <= 8; i++) {
 			list.add(new ArrayList<Integer>());
 		}
-		
 		
 		list.get(1).add(2);
 		list.get(1).add(3);
@@ -45,29 +66,4 @@ public class Ex9 {
 		
 		bfs(1);
 	}
-	
-	private static void bfs(int start) {
-		Queue<Integer> queue = new LinkedList<Integer>();
-		queue.add(start);
-		
-		isVisited[start] = true;
-		
-		while(!queue.isEmpty()) {
-			
-			int num = queue.remove();
-			System.out.print(num + " ");
-			
-			List<Integer> nodes = list.get(num);
-			
-			for(int node : nodes) {
-				if(!isVisited[node]) {
-					queue.add(node);
-					isVisited[node] = true;
-				}
-			}
-			
-		}
-		
-	}
-	
 }

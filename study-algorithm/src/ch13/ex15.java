@@ -2,31 +2,29 @@ package ch13;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Queue;
 import java.util.Scanner;
 
 public class ex15 {
 	 
 	static int n, m, k, x;
-	static List<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
-	
+	static ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 	static int[] distance = new int[300001];
 	
 	public static void main(String[] args) {
+		
 		Scanner scan = new Scanner(System.in);
 		n = scan.nextInt();
 		m = scan.nextInt();
 		k = scan.nextInt();
 		x = scan.nextInt();
-		scan.nextLine();
 		
 		for(int i=0; i<=n; i++) {
 			list.add(new ArrayList<Integer>());
 			distance[i] = -1;
 		}
 		
-		for(int i=0; i < m; i++) {
+		for(int i=0; i<m; i++) {
 			int a = scan.nextInt();
 			int b = scan.nextInt();
 			list.get(a).add(b);
@@ -47,21 +45,16 @@ public class ex15 {
 					distance[next] = distance[now] + 1;
 					q.offer(next);
 				}
-				
 			}
 		}
 		
-		boolean check = false;
+		int result = -1;
 		
 		for(int i=1; i<=n; i++) {
 			if(distance[i] == k) {
-				System.out.println(i);
-				check = true;
+				result = i;
+				System.out.println(result);
 			}
-		}
-		
-		if(!check) {
-			System.out.println(-1);
 		}
 	}
 }

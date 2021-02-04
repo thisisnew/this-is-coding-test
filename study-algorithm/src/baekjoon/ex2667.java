@@ -56,6 +56,7 @@ public class ex2667 {
 				}
 			}
 		}
+		
 		Collections.sort(list);
 		System.out.println(list.size());
 		for(int i : list) {

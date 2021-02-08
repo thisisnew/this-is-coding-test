@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class ex2667 {
+public class Ex2667 {
 	
 	static int n;
 	static int cnt;

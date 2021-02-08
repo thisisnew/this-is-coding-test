@@ -3,7 +3,7 @@ package baekjoon;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class ex2606 {
+public class Ex2606 {
 	
 	static int n;
 	static int m;

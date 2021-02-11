@@ -1,53 +1,49 @@
 package baekjoon.bfsdfs;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.StringTokenizer;
 
 public class Ex2606 {
 	
-	static int n;
-	static int m;
-	static ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
-	static int answer;
-	static boolean[] isVisted;
+	static int n, m, answer;
+	static ArrayList<ArrayList<Integer>> graph = new ArrayList<ArrayList<Integer>>();
+	static boolean[] isVisited;
 	
-	public static void dfs(int x) {
-		isVisted[x] = true;
+	static void dfs(int x) {
+		isVisited[x] = true;
 		
-		for(int i=0; i < list.get(x).size(); i++) {
-			int n = list.get(x).get(i);
+		for(int i=0; i<graph.get(x).size(); i++) {
+			int n = graph.get(x).get(i);
 			
-			if(!isVisted[n]) {
+			if(!isVisited[n]) {
 				answer++;
 				dfs(n);
 			}
 		}
-		
 	}
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		
-		Scanner scanner = new Scanner(System.in);
-		n = scanner.nextInt();
-		m = scanner.nextInt();
-		scanner.nextLine();
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		n = Integer.parseInt(br.readLine());
+		m = Integer.parseInt(br.readLine());
 		
-		isVisted = new boolean[n+1];
+		isVisited = new boolean[n+1];
 		
-		for(int i = 0; i <= n; i++) {
-			list.add(new ArrayList<Integer>());
+		for(int i=0; i<=n; i++) {
+			graph.add(new ArrayList<Integer>());
 		}
 		
-		String str;
-		int a;
-		int b;
-		for(int i = 0; i < m; i++) {
-			str = scanner.nextLine();
-			a = Integer.parseInt(str.split(" ")[0]);
-			b = Integer.parseInt(str.split(" ")[1]);
+		for(int i=0; i<m; i++) {
+			StringTokenizer st = new StringTokenizer(br.readLine());
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
 			
-			list.get(a).add(b);
-			list.get(b).add(a);
+			graph.get(a).add(b);
+			graph.get(b).add(a);
 		}
 		
 		answer = 0;

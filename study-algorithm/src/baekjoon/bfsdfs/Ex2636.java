@@ -1,4 +1,4 @@
-package baekjoon.bfs;
+package baekjoon.bfsdfs;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;

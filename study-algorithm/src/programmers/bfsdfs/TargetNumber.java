@@ -10,12 +10,6 @@ public class TargetNumber {
 		System.out.println(answer);
 	}
 	
-	public static int solution(int[] numbers, int target) {
-		dfs(numbers, target, 0);
-		
-		return answer;
-	}
-	
 	public static void dfs(int[] numbers, int target, int idx) {
 		
 		if(idx == numbers.length) {
@@ -30,10 +24,10 @@ public class TargetNumber {
 			}
 		} else {
 			numbers[idx] *= 1;
-			dfs(numbers, target, idx++);
+			dfs(numbers, target, idx+1);
 			
 			numbers[idx] *= -1;
-			dfs(numbers, target, idx++);
+			dfs(numbers, target, idx+1);
 		}
 
 	}

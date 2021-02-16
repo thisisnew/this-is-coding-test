@@ -1,25 +1,56 @@
 package baekjoon.bfsdfs;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
+import java.util.List;
 
 public class Ex2667 {
 	
-	static int n;
-	static int cnt;
-	static int[][] array = new int[26][26];
-	static ArrayList<Integer> list = new ArrayList<Integer>();
+	static int n, cnt;
+	static int[][] graph = new int[26][26];
+	
+	public static void main(String[] args) throws NumberFormatException, IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		n = Integer.parseInt(br.readLine());
+		
+		for(int i=0; i<n; i++) {
+			String input = br.readLine();
+			for(int j=0; j<n; j++) {
+				graph[i][j] = input.charAt(j) - '0';
+			}
+		}
+		
+		List<Integer> list = new ArrayList<Integer>();
+		
+		for(int i=0; i<n; i++) {
+			for(int j=0; j<n; j++) {
+				if(dfs(i,j)) {
+					list.add(cnt);
+					cnt = 0;
+				}
+			}
+		}
+		
+		Collections.sort(list);
+		
+		System.out.println(list.size());
+		
+		for(int i : list) {
+			System.out.println(i);
+		}
+	}
 	
 	static boolean dfs(int x, int y) {
-		
 		if(x < 0 || x >= n || y < 0 || y >= n) {
 			return false;
 		}
 		
-		if(array[x][y] == 1) {
+		if(graph[x][y] == 1) {
 			cnt++;
-			array[x][y] = 0;
+			graph[x][y] = 0;
 			
 			dfs(x-1, y);
 			dfs(x+1, y);
@@ -32,35 +63,4 @@ public class Ex2667 {
 		return false;
 	}
 	
-	public static void main(String[] args) {
-		
-		Scanner scanner = new Scanner(System.in);
-		n = scanner.nextInt();
-		scanner.nextLine();
-		
-		for(int i=0; i<n; i++) {
-			String words = scanner.nextLine();
-			
-			for(int j=0; j<n; j++) {
-				array[i][j] = Character.getNumericValue(words.charAt(j));
-			}
-		}
-		
-		int answer = 0;
-		
-		for(int i=0; i<n; i++) {
-			for(int j=0; j<n; j++) {
-				if(dfs(i, j)) {
-					list.add(cnt);
-					cnt = 0;
-				}
-			}
-		}
-		
-		Collections.sort(list);
-		System.out.println(list.size());
-		for(int i : list) {
-			System.out.println(i);
-		}
-	}
 }

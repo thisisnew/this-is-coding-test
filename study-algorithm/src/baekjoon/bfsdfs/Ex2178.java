@@ -8,12 +8,11 @@ import java.util.Queue;
 import java.util.StringTokenizer;
 
 class Node2178 {
-	private int a, b, cnt;
+	private int a, b;
 	
-	public Node2178(int a, int b, int cnt) {
+	public Node2178(int a, int b) {
 		this.a = a;
 		this.b = b;
-		this.cnt = cnt;
 	}
 	
 	public int getA() {
@@ -23,64 +22,63 @@ class Node2178 {
 	public int getB() {
 		return b;
 	}
-	
-	public int getCnt() {
-		return cnt;
-	}
+
 }
 
 public class Ex2178 {
 	
-	static int[] dr = {1,-1,0,0};
-    static int[] dc = {0,0,-1,1};
-    static boolean[][] visited;
-    static int[][] map;
-    static int N,M;
-
-    public static void main(String args[]) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        N = Integer.parseInt(st.nextToken());
-        M = Integer.parseInt(st.nextToken());
-
-        map = new int[N][M];
-        visited = new boolean[N][M];
-
-        for (int i = 0; i < N; i++) {
-            st = new StringTokenizer(br.readLine());
-            String line = st.nextToken();
-            for (int j = 0; j < M; j++) {
-                map[i][j] = line.charAt(j) - '0';
-            }
-        }
-
-        bfs(0,0);
-
-        System.out.println(map[N-1][M-1]);
-    }
-
-    public static void bfs(int i, int j){
-        Queue<int[]> q = new LinkedList<>();
-        q.offer(new int[] {i,j});
-
-        while(!q.isEmpty()){
-            int location[] = q.poll();
-            visited[i][j] = true;
-
-            for(int dir = 0; dir<4; dir++){
-                int r = location[0] + dr[dir];
-                int c = location[1] + dc[dir];
-
-                //좌표가 -1이 되거나 N or M이 되어 map의 범위를 벗어나면 안되므로
-                if(r >= 0 && c >= 0 && r < N && c < M){
-                    if(map[r][c] != 0 && !visited[r][c]){
-                        q.offer(new int[] {r,c});
-                        visited[r][c] = true;
-                        map[r][c] = map[location[0]][location[1]] + 1;
-                    }
-                }
-            }
-        }
-    }
+	static int m, n;
+	static int[][] graph;
+	static int[] dx = {-1, 1, 0, 0};
+	static int[] dy = {0, 0, -1, 1};
+	
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		n = Integer.parseInt(st.nextToken());
+		m = Integer.parseInt(st.nextToken());
+		
+		graph = new int[n][m];
+		
+		for(int i=0; i<n; i++) {
+			String input = br.readLine();
+			for(int j=0; j<m; j++) {
+				graph[i][j] = input.charAt(j) - '0';
+			}
+		}
+		System.out.println(bfs(0, 0));
+	}
+	
+	static int bfs(int x, int y) {
+		Queue<Node2178> q = new LinkedList<Node2178>();
+		q.offer(new Node2178(x, y));
+		
+		while(!q.isEmpty()) {
+			
+			Node2178 node = q.poll();
+			x = node.getA();
+			y = node.getB();
+			
+			for(int i=0; i<4; i++) {
+				int nx = dx[i] + x;
+				int ny = dy[i] + y;
+				
+				if(nx < 0 || nx >= n || ny < 0 || ny >=m) {
+					continue;
+				}
+				
+				if(graph[nx][ny] == 0) {
+					continue;
+				}
+				
+				if(graph[nx][ny] == 1) {
+					graph[nx][ny] = graph[x][y] + 1;
+					q.offer(new Node2178(nx, ny));
+				}
+			}
+		}
+		
+		return graph[n-1][m-1];
+	}
 }

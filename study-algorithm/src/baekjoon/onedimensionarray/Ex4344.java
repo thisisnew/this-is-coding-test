@@ -1,4 +1,4 @@
-package baekjoon.oneDimensionArray;
+package baekjoon.onedimensionarray;
 
 import java.io.BufferedReader;
 import java.io.IOException;

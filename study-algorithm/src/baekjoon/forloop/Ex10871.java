@@ -1,4 +1,4 @@
-package baekjoon.forLoop;
+package baekjoon.forloop;
 
 import java.io.BufferedReader;
 import java.io.IOException;

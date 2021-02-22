@@ -24,7 +24,7 @@ public class Ex1260 {
 		m = Integer.parseInt(st.nextToken());
 		v = Integer.parseInt(st.nextToken());
 		
-		graph = new int[n+1][m+1];
+		graph = new int[n+1][n+1];
 		isVisited = new boolean[n+1];
 		
 		for(int i=0; i<m; i++) {

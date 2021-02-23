@@ -7,24 +7,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Node2178 {
-	private int a, b;
-	
-	public Node2178(int a, int b) {
-		this.a = a;
-		this.b = b;
-	}
-	
-	public int getA() {
-		return a;
-	}
-	
-	public int getB() {
-		return b;
-	}
-
-}
-
 public class Ex2178 {
 	
 	static int m, n;
@@ -34,7 +16,7 @@ public class Ex2178 {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringTokenizer st =  new StringTokenizer(br.readLine());
 		
 		n = Integer.parseInt(st.nextToken());
 		m = Integer.parseInt(st.nextToken());
@@ -47,24 +29,26 @@ public class Ex2178 {
 				graph[i][j] = input.charAt(j) - '0';
 			}
 		}
+
 		System.out.println(bfs(0, 0));
 	}
 	
 	static int bfs(int x, int y) {
-		Queue<Node2178> q = new LinkedList<Node2178>();
-		q.offer(new Node2178(x, y));
+		
+		Queue<int[]> q = new LinkedList<int[]>();
+		q.offer(new int[] {x, y});
 		
 		while(!q.isEmpty()) {
+			int[] node = q.poll();
 			
-			Node2178 node = q.poll();
-			x = node.getA();
-			y = node.getB();
+			x = node[0];
+			y = node[1];
 			
 			for(int i=0; i<4; i++) {
-				int nx = dx[i] + x;
-				int ny = dy[i] + y;
+				int nx = x + dx[i];
+				int ny = y + dy[i];
 				
-				if(nx < 0 || nx >= n || ny < 0 || ny >=m) {
+				if(nx < 0 || nx >= n || ny < 0 || ny >= m) {
 					continue;
 				}
 				
@@ -74,7 +58,7 @@ public class Ex2178 {
 				
 				if(graph[nx][ny] == 1) {
 					graph[nx][ny] = graph[x][y] + 1;
-					q.offer(new Node2178(nx, ny));
+					q.offer(new int[] {nx, ny});
 				}
 			}
 		}

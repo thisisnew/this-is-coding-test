@@ -9,15 +9,20 @@ import java.util.List;
 
 public class Ex2667 {
 	
-	static int n, cnt;
-	static int[][] graph = new int[26][26];
+	static int n;
+	static int[][] graph;
+	static int answer;
 	
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
 		n = Integer.parseInt(br.readLine());
+		graph = new int[n+1][n+1];
 		
 		for(int i=0; i<n; i++) {
+			
 			String input = br.readLine();
+			
 			for(int j=0; j<n; j++) {
 				graph[i][j] = input.charAt(j) - '0';
 			}
@@ -27,9 +32,9 @@ public class Ex2667 {
 		
 		for(int i=0; i<n; i++) {
 			for(int j=0; j<n; j++) {
-				if(dfs(i,j)) {
-					list.add(cnt);
-					cnt = 0;
+				if(dfs(i, j)) {
+					list.add(answer);
+					answer = 0;
 				}
 			}
 		}
@@ -38,8 +43,8 @@ public class Ex2667 {
 		
 		System.out.println(list.size());
 		
-		for(int i : list) {
-			System.out.println(i);
+		for(int answer : list) {
+			System.out.println(answer);
 		}
 	}
 	
@@ -49,8 +54,8 @@ public class Ex2667 {
 		}
 		
 		if(graph[x][y] == 1) {
-			cnt++;
 			graph[x][y] = 0;
+			answer++;
 			
 			dfs(x-1, y);
 			dfs(x+1, y);

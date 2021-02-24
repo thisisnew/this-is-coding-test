@@ -12,12 +12,10 @@ public class Ex1697 {
 	static int k, n;
 	static int[] graph = new int[100001];
 	static int[] dx = {-1, 1, 2};
-	static int answer = 0;
-	static int cnt;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringTokenizer st =  new StringTokenizer(br.readLine());
 		
 		n = Integer.parseInt(st.nextToken());
 		k = Integer.parseInt(st.nextToken());
@@ -30,12 +28,13 @@ public class Ex1697 {
 	}
 	
 	static int bfs(int x) {
-		
 		Queue<Integer> q = new LinkedList<Integer>();
 		q.offer(x);
+		
 		graph[x] = 1;
 		
 		while(!q.isEmpty()) {
+			
 			x = q.poll();
 			
 			for(int i=0; i<3; i++) {
@@ -60,7 +59,6 @@ public class Ex1697 {
 					graph[nx] = graph[x] + 1;
 					q.offer(nx);
 				}
-				
 			}
 		}
 		

@@ -7,32 +7,6 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.StringTokenizer;
 
-class Node7569 {
-	private int a, b, c, cnt;
-	
-	public Node7569(int a, int b, int c, int cnt) {
-		this.a = a;
-		this.b = b;
-		this.c = c;
-		this.cnt = cnt;
-	}
-	
-	public int getA() {
-		return a;
-	}
-	
-	public int getB() {
-		return b;
-	}
-	
-	public int getC() {
-		return c;
-	}
-	
-	public int getCnt() {
-		return cnt;
-	}
-}
 
 public class Ex7569 {
 	
@@ -44,7 +18,7 @@ public class Ex7569 {
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		StringTokenizer st = new StringTokenizer(br.readLine());
+		StringTokenizer st =  new StringTokenizer(br.readLine());
 		
 		m = Integer.parseInt(st.nextToken());
 		n = Integer.parseInt(st.nextToken());
@@ -52,12 +26,12 @@ public class Ex7569 {
 		
 		graph = new int[h][n][m];
 		
-		for(int k=0; k<h; k++) {
-			for(int i=0; i<n; i++) {
-				st = new StringTokenizer(br.readLine());
+		for(int i=0; i<h; i++) {
+			for(int j=0; j<n; j++) {
+				st =  new StringTokenizer(br.readLine());
 				
-				for(int j=0; j<m; j++) {
-					graph[k][i][j] = Integer.parseInt(st.nextToken());
+				for(int k=0; k<m; k++) {
+					graph[i][j][k] = Integer.parseInt(st.nextToken()); 
 				}
 			}
 		}
@@ -67,53 +41,62 @@ public class Ex7569 {
 	}
 	
 	static int bfs() {
+		Queue<int[]> q = new LinkedList<int[]>();
 		
-		Queue<Node7569> q = new LinkedList<Node7569>();
-		
-		for(int k=0; k<h; k++) {
-			for(int i=0; i<n; i++) {
-				for(int j=0; j<m; j++) {
-					if(graph[k][i][j] == 1) {
-						q.offer(new Node7569(i, j, k, 0));
-					}
+		for(int i=0; i<h; i++) {
+			for(int j=0; j<n; j++) {
+				for(int k=0; k<m; k++) {
+					if(graph[i][j][k] == 1) {
+						q.offer(new int[] {i, j, k, 0});
+					} 
 				}
 			}
 		}
-	
+		
 		int cnt = 0;
 		
 		while(!q.isEmpty()) {
-			Node7569 node = q.poll();
-			cnt = node.getCnt();
+			int[] node = q.poll();
+			int z = node[0];
+			int x = node[1];
+			int y = node[2];
+			cnt = node[3];
 			
 			for(int i=0; i<6; i++) {
-				int nx = node.getA() + dx[i];
-				int ny = node.getB() + dy[i];
-				int nh = node.getC() + dh[i];
+				int nx = x + dx[i];
+				int ny = y + dy[i];
+				int nh = z + dh[i];
 				
-				if(nx < 0 || nx >= n || ny < 0 || ny >= m || nh < 0 || nh >= h) {
+				if(nh < 0 || nh >= h || nx < 0 || nx >= n || ny < 0 || ny >= m) {
 					continue;
 				}
 				
-				
 				if(graph[nh][nx][ny] == 0) {
 					graph[nh][nx][ny] = 1;
-					
-					q.offer(new Node7569(nx, ny, nh , cnt+1));
+					q.offer(new int[] {nh, nx, ny, cnt+1});
 				}
 			}
+			
 		}
 		
-		for(int k=0; k<h; k++) {
-			for(int i=0; i<n; i++) {
-				for(int j=0; j<m; j++) {
-					if(graph[k][i][j] == 0) {
-						cnt = -1;
+		if(!check()) {
+			cnt = -1;
+		}
+		
+		return cnt;
+	}
+	
+	static boolean check() {
+		for(int i=0; i<h; i++) {
+			for(int j=0; j<n; j++) {
+				for(int k=0; k<m; k++) {
+					if(graph[i][j][k] == 0) {
+						return false;
 					}
 				}
 			}
 		}
 		
-		return cnt;
+		return true;
 	}
 }

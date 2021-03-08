@@ -11,10 +11,6 @@ public class Ex5218 {
 		
 		int n = Integer.parseInt(br.readLine());
 		
-		for(int i=65; i<=90; i++) {
-			
-		}
-		
 		for(int i=0; i<n; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			

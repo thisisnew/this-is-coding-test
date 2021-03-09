@@ -15,7 +15,7 @@ public class Ex2754 {
 	
 	static double calc(String score) {
 		
-		double point = 0.0;
+		double point = 0.0d;
 		
 		switch (score) {
 			case "A+": point = 4.3; break;

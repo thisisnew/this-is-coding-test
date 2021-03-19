@@ -38,6 +38,5 @@ public class Ex2712 {
 				System.out.println(String.format("%.4f", d) + " l");
 			}
 		}
-		
 	}
 }

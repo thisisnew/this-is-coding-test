@@ -7,81 +7,78 @@ import java.util.StringTokenizer;
 
 public class Ex10828 {
 	
-	static int[] stack;
-	static int size = 0;
+	static int[] stack = new int[10000];
+	static int idx = 0;
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		int n = Integer.parseInt(br.readLine());
 		
-		stack = new int[n];
-		
-		StringBuilder sb = new StringBuilder();
-		
 		for(int i=0; i<n; i++) {
 			StringTokenizer st = new StringTokenizer(br.readLine());
 			
-			String direction = st.nextToken();
-			
-			if(direction.equals("push")) {
-				int val = Integer.parseInt(st.nextToken());
+			while(st.hasMoreTokens()) {
 				
-				push(val);
-			}
-			
-			if(direction.equals("pop")) {
-				sb.append(pop()).append("\n");
-			}
-			
-			if(direction.equals("size")) {
-				sb.append(size()).append("\n");
-			}
-			
-			if(direction.equals("empty")) {
-				sb.append(empty()).append("\n");
-			}
-			
-			if(direction.equals("top")) {
-				sb.append(top()).append("\n");
+				String input = st.nextToken();
+				
+				if(input.equals("push")) {
+					push(st.nextToken());
+				}
+				
+				if(input.equals("pop")) {
+					System.out.println(pop());
+				}
+				
+				if(input.equals("top")) {
+					System.out.println(top());
+				}
+				
+				if(input.equals("size")) {
+					System.out.println(size());
+				}
+				
+				if(input.equals("empty")) {
+					System.out.println(empty());
+				}
 			}
 		}
-		
-		System.out.println(sb.toString());
 	}
 	
-	static void push(int value) {
-		stack[size] = value;
-		size++;
+	static void push(String value) {
+		stack[idx] = Integer.parseInt(value);
+		idx++;
 	}
 	
 	static int pop() {
-		if(size == 0) {
+		if(idx == 0) {
 			return -1;
-		} else {
-			int r = stack[size-1];
-			stack[size-1] = 0;
-			size--;
-			return r;
 		}
-	}
-	
-	static int size() {
-		return size;
-	}
-	
-	static int empty() {
-		if(size == 0) {
-			return 1;
-		} else {
-			return 0;
-		}
+		
+		int value = stack[idx-1];
+		stack[idx] = 0;
+		idx--;
+		
+		return value;
+		
 	}
 	
 	static int top() {
-		if(size == 0) {
+		if(idx == 0) {
 			return -1;
-		} else {
-			return stack[size-1];
+		} 
+		
+		return stack[idx-1];
+	}
+	
+	static int size() {
+		return idx;
+	}
+	
+	static int empty() {
+		if(idx == 0) {
+			return 1;
 		}
+		
+		return 0;
 	}
 }

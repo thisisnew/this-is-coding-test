@@ -1,0 +1,30 @@
+package baekjoon.implement;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+public class Ex11549 {
+	public static void main(String[] args) throws IOException {
+
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int t = Integer.parseInt(br.readLine());
+		int answer = 0;
+		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		
+		while(st.hasMoreTokens()) {
+			
+			int i = Integer.parseInt(st.nextToken());
+			
+			if(t == i) {
+				answer++;
+			}
+		}
+		
+		System.out.println(answer);
+		
+	}
+}

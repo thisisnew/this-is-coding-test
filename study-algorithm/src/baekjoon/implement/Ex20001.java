@@ -37,7 +37,6 @@ public class Ex20001 {
 			}
 		}
 		
-		
 		if(q.isEmpty()) {
 			System.out.println("고무오리야 사랑해");
 		} else {

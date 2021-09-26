@@ -12,6 +12,7 @@ public class Ex4999 {
 		String dr = br.readLine();
 		
 		if(jh.length() < dr.length()) {
+			
 			System.out.println("no");
 		} else {
 			System.out.println("go");

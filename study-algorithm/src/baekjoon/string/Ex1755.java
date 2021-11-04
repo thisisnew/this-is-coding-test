@@ -13,8 +13,6 @@ public class Ex1755 {
 	final static String[] STRING_ARRAY = new String[] { "zero", "one", "two", "three", "four", "five", "six", "seven",
 			"eight", "nine" };
 
-	final static int[] INT_ARRAY = new int[] { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-
 	public static void main(String[] args) throws IOException {
 		List<String> result = new ArrayList<String>();
 

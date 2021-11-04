@@ -13,7 +13,7 @@ public class Ex1755 {
 			"nine" };
 
 	public static void main(String[] args) throws IOException {
-		List<Integer> result = new ArrayList<Integer>();
+		List<String> result = new ArrayList<String>();
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		StringTokenizer st = new StringTokenizer(br.readLine());
@@ -22,24 +22,24 @@ public class Ex1755 {
 
 		for (int i = m; i <= n; i++) {
 			String num = String.valueOf(i);
-			int sum = 0;
+			StringBuffer word = new StringBuffer();
 			for (int j = 0; j < num.length(); j++) {
 				int idx =  num.charAt(j) - '0';
 				String s = ARRAY[idx];
-				sum += s.length();
+				word.append(s).append(" ");
 			}
-			result.add(sum);
+			result.add(word.toString().trim());
 		}
 		
 		Collections.sort(result);
 		
 		int cnt = 1;
-		for(Integer r : result) {
+		for(String r : result) {
 			if (cnt == 10 ){
 				System.out.println();
 				cnt = 0;
 			}
-			System.out.print(r);
+			System.out.print(r.length()+" ");
 			cnt++;
 		}
 		

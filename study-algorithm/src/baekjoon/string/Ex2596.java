@@ -23,61 +23,63 @@ public class Ex2596 {
 
 		int t = Integer.parseInt(br.readLine());
 		String answer = "";
-		for (int i = 0; i < t; i++) {
+		String input = br.readLine();
 
-			String input = br.readLine();
-			String word = "";
-			int cnt = 0;
-			for (int j = 0; j < input.length(); j++) {
-				word += input.charAt(j);
-				if (j > 0 && j % 6 == 0) {
-					String param = word;
-					word = "";
-					cnt++;
-					String comp = compareAlphabet(param);
-					if (comp.equals("ALL")) {
-						answer = "";
-						break;
-					} else {
-						answer += comp;
-					}
+		String word = "";
+		int cnt = 0;
+		for (int j = 0; j < input.length(); j++) {
+			if ((j > 0 && j % 6 == 0) || (j == input.length()-1)){
+				if(j == input.length()-1) {
+					word += input.charAt(j); 
+				}
+				String param = word;
+				word = "";
+				cnt++;
+				String comp = compareAlphabet(param);
+				if (comp.equals("ALL")) {
+					answer = "";
+					break;
+				} else {
+					answer += comp;
 				}
 			}
-		
-			if(answer.isBlank()) {
-				System.out.println(cnt);
-			} else {
-				System.out.println(answer);
-			}
+			word += input.charAt(j);
 		}
+
+		if (answer.isBlank()) {
+			System.out.println(cnt);
+		} else if(answer.length() == t){
+			System.out.println(answer);
+		}
+
 	}
 
 	private static String compareAlphabet(String word) {
 		String answer = "";
-		 
-			for (String key : alphabetMap.keySet()) {
+
+		for (String key : alphabetMap.keySet()) {
 			String value = alphabetMap.get(key);
 			int cnt = 0;
-		
+
 			for (int i = 0; i < value.length(); i++) {
-				if(value.charAt(i) != word.charAt(i)) {
+				if (value.charAt(i) != word.charAt(i)) {
 					cnt++;
 				}
-				if(cnt == 2) {
+				if (cnt == 2) {
 					continue;
 				}
 			}
-			
-			if(cnt <= 1) {
+
+			if (cnt <= 1) {
 				answer = key;
 				break;
 			}
 		}
-		
-		if(answer.isBlank()) {
+
+		if (answer.isBlank()) {
 			answer = "ALL";
 		}
-		
+
 		return answer;
 	}
 

@@ -29,18 +29,18 @@ public class Ex2596 {
 			String word = "";
 			int cnt = 0;
 			for (int j = 0; j < input.length(); j++) {
+				word += input.charAt(j);
 				if (j > 0 && j % 6 == 0) {
+					String param = word;
+					word = "";
 					cnt++;
-					String comp = compareAlphabet(word);
+					String comp = compareAlphabet(param);
 					if (comp.equals("ALL")) {
 						answer = "";
 						break;
 					} else {
-						word = "";
 						answer += comp;
 					}
-				} else {
-					word += input.charAt(j);
 				}
 			}
 		
@@ -54,21 +54,22 @@ public class Ex2596 {
 
 	private static String compareAlphabet(String word) {
 		String answer = "";
-		maploop: 
+		 
 			for (String key : alphabetMap.keySet()) {
 			String value = alphabetMap.get(key);
 			int cnt = 0;
+		
 			for (int i = 0; i < value.length(); i++) {
 				if(value.charAt(i) != word.charAt(i)) {
 					cnt++;
 				}
 				if(cnt == 2) {
-					break maploop;
+					continue;
 				}
 			}
 			
 			if(cnt <= 1) {
-				answer = value;
+				answer = key;
 				break;
 			}
 		}

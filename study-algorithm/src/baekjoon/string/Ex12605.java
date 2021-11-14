@@ -22,6 +22,7 @@ public class Ex12605 {
 				arr[idx] = st.nextToken();
 				idx++;
 			}
+			
 			int x = i + 1;
 			System.out.println("Case #" + x + ": " + makeString(arr));
 		}

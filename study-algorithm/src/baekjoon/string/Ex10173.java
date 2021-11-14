@@ -23,7 +23,6 @@ public class Ex10173 {
 			} else {
 				System.out.println("Missing");
 			}
-
 		}
 	}
 }

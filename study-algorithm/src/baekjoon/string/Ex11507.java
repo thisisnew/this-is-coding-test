@@ -66,7 +66,7 @@ public class Ex11507 {
 	private static String putArray(String word) {
 
 		String s = word.substring(0, 1);
-		int n = Integer.parseInt(word.substring(1));
+		int n = Integer.parseInt(word.substring(1)) - 1;
 
 		int idx = 0;
 

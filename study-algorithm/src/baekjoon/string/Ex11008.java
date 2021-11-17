@@ -22,7 +22,7 @@ public class Ex11008 {
 			int cnt = 0;
 			
 			for(int j=0; j<s.length(); j++) {
-				for(int k=0; k<p.length(); k++) {
+				if(s.charAt(i) == p.charAt(0)) {
 					
 				}
 			}

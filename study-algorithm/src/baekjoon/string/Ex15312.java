@@ -26,8 +26,6 @@ public class Ex15312 {
 
 		while (true) {
 			if (arr.length == 2) {
-				int result = arr[0] + arr[1];
-				System.out.println(sum(result));
 				break;
 			} else {
 				int[] newArr = new int[arr.length - 1];
@@ -44,11 +42,14 @@ public class Ex15312 {
 			}
 
 		}
+		
+		System.out.println(arr[0] + "" + arr[1]);
 
 	}
 	
 	private static int sumNumber(int i, int j) {
-		return i+j;
+		int result = (i+j)%10;
+		return result;
 	}
 	
 	private static int getNumber(char c) {
@@ -164,11 +165,4 @@ public class Ex15312 {
 		return result;
 	}
 
-	private static int sum(int result) {
-		if (result > 99) {
-			result = result % 10;
-			sum(result);
-		}
-		return result;
-	}
 }

@@ -21,13 +21,10 @@ public class Ex11008 {
 			String p = st.nextToken();
 			int cnt = 0;
 			
-			while(true) {
-				if(s.contains(p)) {
-					s = s.replace(p, "");
-				} else {
-					break;
+			for(int j=0; j<s.length(); j++) {
+				for(int k=0; k<p.length(); k++) {
+					
 				}
-				cnt++;
 			}
 			
 			System.out.println(cnt+ s.length());

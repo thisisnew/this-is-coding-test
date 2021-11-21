@@ -1,76 +1,54 @@
 package baekjoon.string;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 public class Ex9226 {
+	public static void main(String[] args) throws IOException {
+		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public static boolean isVowel(char c) {
-		char[] arr = { 'a', 'e', 'i', 'o', 'u' };
-		
-		for(int i = 0; i < arr.length; i++) {
-			if(arr[i] == c) return true;
-		}
-		return false;
-	}
-	
-	public static String convertToPigLatin(String message) {
-		StringBuilder sb = new StringBuilder(message);
-		
-		boolean foundVowel = false;
-		int index = 0;
-		for(; index < sb.length(); index++) {
-			if(isVowel(sb.charAt(index))) {
-				foundVowel = true;
+		while (true) {
+			String input = br.readLine();
+			String result = input;
+
+			if (input.equals("#")) {
 				break;
 			}
-		}
-		
-		if(foundVowel) {
-			if(index != 0) {
-				String s = sb.substring(0, index);
-				sb.delete(0,  index);
-				sb.append(s);
+
+			if (!input.contains("a") && !input.contains("e") && !input.contains("i") && !input.contains("o") && !input.contains("u")) {
+				System.out.println(result + "ay");
+				continue;
+			} else {
+				for (int i = 0; i < input.length(); i++) {
+					char c = input.charAt(i);
+					
+					switch (c) {
+					case 'a': {
+						break;
+					}
+					case 'e': {
+						break;
+					}
+					case 'i': {
+						break;
+					}
+					case 'o': {
+						break;
+					}
+					case 'u': {
+						break;
+					}
+					default: {
+						result = input.substring(i + 1) + input.substring(0, i + 1);
+						break;
+					}
+					}
+					
+					System.out.println(result + "ay");
+					break;
+				}				
 			}
-		}
-
-		sb.append("ay");
-		return sb.toString();
-	}
-	
-	private static List<String> words;
-	
-	private static boolean input() {
-		boolean state;
-		
-		try(Scanner kb = new Scanner(System.in)) {
-			words = new ArrayList<>();
-			do {
-				String t;
-				t = kb.next();
-				if(t.equals("#")) break;
-				words.add(t);
-			} while(true);
-			state = true;
-		}
-		catch(Exception e) {
-			state = false;
-		}
-		
-		return state;
-	}
-	
-	private static void printAnswer() {
-		for(var s : words) {
-			System.out.println(convertToPigLatin(s));
-		}
-	}
-
-	public static void main(String[] args) {
-		
-		if(input()) {
-			printAnswer();
 		}
 	}
 }

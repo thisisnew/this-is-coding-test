@@ -15,7 +15,6 @@ public class Ex5598 {
 			char c = input.charAt(i);
 				
 			int n = c;
-
 			n = n - 3;
 
 			if (n < 65) {
@@ -25,7 +24,5 @@ public class Ex5598 {
 			System.out.print((char) n);
 
 		}
-
 	}
-
 }

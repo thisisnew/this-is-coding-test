@@ -13,12 +13,12 @@ public class Ex5598 {
 		for (int i = 0; i < input.length(); i++) {
 
 			char c = input.charAt(i);
-				
+
 			int n = c;
 			n = n - 3;
 
 			if (n < 65) {
-				n = 90 - n;
+				n = 91 - (65 - n);
 			}
 
 			System.out.print((char) n);

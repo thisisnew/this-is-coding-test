@@ -13,6 +13,7 @@ public class Ex7567 {
 
 		char prev = input.charAt(0);
 		int sum = 10;
+		
 		for (int i = 1; i < input.length(); i++) {
 			char next = input.charAt(i);
 

@@ -40,6 +40,10 @@ public class Ex23627 {
 	
 	private static boolean isValid(String value) {
 		
+		if(value.length() > DRIIP.length()) {
+			return false;
+		}
+		
 		for(int i=0; i<value.length(); i++) {
 			if(value.charAt(i) != DRIIP.charAt(i)) {
 				return false;

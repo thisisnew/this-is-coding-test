@@ -25,10 +25,18 @@ public class Ex23027 {
 			input = input.replaceAll("D", "C");
 			input = input.replaceAll("F", "C");
 		} else if (!input.contains("A") && !input.contains("B") && !input.contains("C")) {
-			input = input.replaceAll(input, "A");
+			input = replaceA(input);
 		}
 
 		System.out.println(input);
 	}
 
+	private static String replaceA(String value) {
+		String out = "";
+		for (int i = 0; i < value.length(); i++) {
+			out += "A";
+		}
+
+		return out;
+	}
 }

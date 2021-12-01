@@ -25,7 +25,7 @@ public class Ex9296 {
 				}
 			}
 
-			System.out.println("Case " + caseCnt + ":" + cnt);
+			System.out.println("Case " + caseCnt + ": " + cnt);
 			caseCnt++;
 		}
 

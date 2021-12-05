@@ -14,14 +14,22 @@ public class Ex17288 {
 		String num = "";
 		int res = 0;
 		for (int i = 0; i < input.length() - 1; i++) {
-			num += input.charAt(i);
 			int m = Integer.parseInt(Character.toString(input.charAt(i)));
 			int n = Integer.parseInt(Character.toString(input.charAt(i + 1)));
 			if (m + 1 == n) {
-				
+				num += input.charAt(i);
+			} else {
+				num = Character.toString(input.charAt(i));
+				continue;
+			}
+			
+			if(num.length() == 3) {
+				res++;
+				num = "";
 			}
 		}
-
+		
+		System.out.println(res);
 	}
 
 }

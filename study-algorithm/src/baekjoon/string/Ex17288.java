@@ -18,7 +18,7 @@ public class Ex17288 {
 			int m = Integer.parseInt(Character.toString(input.charAt(i)));
 			int n = Integer.parseInt(Character.toString(input.charAt(i + 1)));
 			if (m + 1 == n) {
-
+				
 			}
 		}
 

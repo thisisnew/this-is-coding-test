@@ -15,7 +15,7 @@ public class Ex16944 {
 		
 		int result = 0;
 		
-		if (!isMoreThenSixLetters(input)){
+		if (!isMoreThenSixLetters(number)){
 			result++;
 		}
 		if (!hasCapitalAlphabet(input)){
@@ -32,8 +32,8 @@ public class Ex16944 {
 		
 	}
 	
-	private static boolean isMoreThenSixLetters(String value) {
-		if(value.length() < 6) {
+	private static boolean isMoreThenSixLetters(int length) {
+		if(length < 6) {
 			return false;
 		}
 		

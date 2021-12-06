@@ -9,10 +9,27 @@ public class Ex16944 {
 
 	public static void main(String[] args) throws IOException, NoSuchAlgorithmException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		for (int i = 0; i < 5; i++) {
-			String input = br.readLine();
+		
+		int number = Integer.parseInt(br.readLine());
+		String input = br.readLine();
+		
+		int result = 0;
+		
+		if (!isMoreThenSixLetters(input)){
+			result++;
 		}
-
+		if (!hasCapitalAlphabet(input)){
+			result++;
+		}
+		if (!hasSmallAlphabet(input)){
+			result++;
+		}
+		if (!hasSpecialCharacters(input)){
+			result++;
+		}
+	
+		System.out.println(result);
+		
 	}
 	
 	private static boolean isMoreThenSixLetters(String value) {

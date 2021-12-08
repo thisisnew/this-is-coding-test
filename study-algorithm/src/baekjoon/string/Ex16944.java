@@ -53,6 +53,14 @@ public class Ex16944 {
 	}
 
 	private static boolean hasSmallAlphabet(String value) {
+		for(int i=0; i<value.length(); i++) {
+			char c = value.charAt(i);
+			
+			if(!Character.isLowerCase(c)) {
+				return false;
+			}
+		}
+		
 		return true;
 	}
 	

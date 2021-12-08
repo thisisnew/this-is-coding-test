@@ -65,7 +65,11 @@ public class Ex16944 {
 	}
 	
 	private static boolean hasSpecialCharacters(String value) {
-		return true;
+		if (!value.matches("[0-9|a-z|A-Z|¤¡-¤¾|¤¿-¤Ó|°¡-Èþ]*")) {
+			return true;
+        }
+		
+		return false;
 	}
 	
 }

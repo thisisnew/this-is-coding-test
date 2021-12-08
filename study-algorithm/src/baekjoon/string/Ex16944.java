@@ -41,6 +41,14 @@ public class Ex16944 {
 	}
 	
 	private static boolean hasCapitalAlphabet(String value) {
+		for(int i=0; i<value.length(); i++) {
+			char c = value.charAt(i);
+			
+			if(!Character.isUpperCase(c)) {
+				return false;
+			}
+		}
+		
 		return true;
 	}
 

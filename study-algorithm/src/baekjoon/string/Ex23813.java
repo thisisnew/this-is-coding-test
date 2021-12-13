@@ -12,7 +12,7 @@ public class Ex23813 {
 
 		String input = br.readLine();
 		int total = 0;
-
+		
 		while (true) {
 			String turnInput = turnInput(input);
 
@@ -23,6 +23,7 @@ public class Ex23813 {
 			}
 		}
 
+		
 		System.out.println(total);
 	}
 

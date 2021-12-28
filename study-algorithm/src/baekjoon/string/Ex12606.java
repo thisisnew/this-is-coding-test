@@ -22,7 +22,7 @@ public class Ex12606 {
 				cnt++;
 			}
 
-			System.out.print("Case #" + (i + 1) + ":");
+			System.out.print("Case #" + (i + 1) + ": ");
 			System.out.println(String.join(" ", arr));
 		}
 	}

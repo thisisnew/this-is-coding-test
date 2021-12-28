@@ -23,10 +23,7 @@ public class Ex12606 {
 			}
 
 			System.out.print("Case #" + (i + 1) + ":");
-			for (String s : arr) {
-				System.out.print(s + " ");
-			}
-			System.out.println();
+			System.out.println(String.join(" ", arr));
 		}
 	}
 }

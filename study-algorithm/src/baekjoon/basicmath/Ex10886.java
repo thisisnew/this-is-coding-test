@@ -28,6 +28,5 @@ public class Ex10886 {
 		} else {
 			System.out.println("Junhee is cute!");
 		}
-
 	}
 }

@@ -18,34 +18,36 @@ public class Ex11170 {
 			int cnt = 0;
 
 			for (int a = j; a <= k; a++) {
-				if (a % 10 == 0) {
-					cnt += countZeros(a);
-				}
+				String b = String.valueOf(a);
+				char[] arr = generateCharArray(b);
+				cnt += countTokens(arr);
 			}
 
 			System.out.println(cnt);
 		}
 
 	}
-	
-	private static int countZeros(int input) {
-		
-		int cnt = 0;
-		
-		while(true) {
-			
-			int remain = input / 10;
-			
-			if(remain < 10) {
-				break;
-			}
-			
-			cnt++;
-			
-			input = remain;
+
+	private static char[] generateCharArray(String input) {
+		char[] arr = new char[input.length()];
+
+		for (int i = 0; i < input.length(); i++) {
+			arr[i] = input.charAt(i);
 		}
-		
+
+		return arr;
+	}
+
+	private static int countTokens(char[] array) {
+
+		int cnt = 0;
+
+		for (char c : array) {
+			if (c == '0') {
+				cnt++;
+			}
+		}
+
 		return cnt;
 	}
-	
 }

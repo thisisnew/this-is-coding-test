@@ -27,7 +27,6 @@ public class Ex1476 {
 			e++;
 			s++;
 			m++;
-
 			year++;
 
 			if (e > 15) {

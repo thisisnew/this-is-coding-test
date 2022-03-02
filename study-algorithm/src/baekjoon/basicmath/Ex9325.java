@@ -26,8 +26,6 @@ public class Ex9325 {
 			}
 
 			System.out.println(s);
-
 		}
-
 	}
 }

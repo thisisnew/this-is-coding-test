@@ -10,8 +10,15 @@ public class Ex10992 {
 
 		int n = Integer.parseInt(br.readLine());
 		int stars = 1;
-
+		
 		for (int i = 0; i < n; i++) {
+			
+			if(i == 0) {
+				drawFirstStar(stars);
+				
+				continue;
+			}
+			
 			if (i == n - 1) {
 				drawStarsAll(stars);
 			} else {
@@ -20,6 +27,20 @@ public class Ex10992 {
 		}
 	}
 
+	static void drawFirstStar(int stars) {
+
+		int n = stars;
+
+		for (int i = 0; i < n; i++) {
+			if (i == n - 1) {
+				System.out.print("*");
+			} else {
+				System.out.print(" ");
+			}
+		}
+
+	}
+	
 	static void drawStarsAll(int stars) {
 
 		int n = stars * 2 - 1;

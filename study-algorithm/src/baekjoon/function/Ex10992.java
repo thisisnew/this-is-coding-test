@@ -15,15 +15,15 @@ public class Ex10992 {
 			
 			if(i == 0) {
 				drawFirstStar(stars);
-				
 				continue;
 			}
 			
 			if (i == n - 1) {
 				drawStarsAll(stars);
-			} else {
-				drawStarsStartAndEnd(stars);
-			}
+				continue;
+			} 
+			
+			drawStarsStartAndEnd(stars);
 		}
 	}
 

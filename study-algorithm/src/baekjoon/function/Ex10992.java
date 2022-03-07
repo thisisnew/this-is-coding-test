@@ -14,15 +14,18 @@ public class Ex10992 {
 
 			if (i == 0) {
 				drawFirstStar(stars);
+				System.out.println();
 				continue;
 			}
 
 			if (i == stars - 1) {
 				drawStarsAll(stars);
+				System.out.println();
 				continue;
 			}
 
 			drawStarsStartAndEnd(stars);
+			System.out.println();
 		}
 	}
 

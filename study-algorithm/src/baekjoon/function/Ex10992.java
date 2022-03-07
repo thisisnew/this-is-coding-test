@@ -9,19 +9,19 @@ public class Ex10992 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 		int stars = Integer.parseInt(br.readLine());
-	
+
 		for (int i = 0; i < stars; i++) {
-			
-			if(i == 0) {
+
+			if (i == 0) {
 				drawFirstStar(stars);
 				continue;
 			}
-			
+
 			if (i == stars - 1) {
 				drawStarsAll(stars);
 				continue;
-			} 
-			
+			}
+
 			drawStarsStartAndEnd(stars);
 		}
 	}
@@ -39,22 +39,8 @@ public class Ex10992 {
 		}
 
 	}
-	
+
 	static void drawStarsAll(int stars) {
-
-		int n = stars * 2 - 1;
-
-		for (int i = 0; i < n; i++) {
-			if (i == 0 || i == n - 1) {
-				System.out.print("*");
-			} else {
-				System.out.print(" ");
-			}
-		}
-
-	}
-	
-	static void drawStarsStartAndEnd(int stars) {
 
 		int n = stars * 2 - 1;
 
@@ -64,6 +50,14 @@ public class Ex10992 {
 
 	}
 
-	
+	static void drawStarsStartAndEnd(int stars) {
+
+		int n = stars * 2 - 1;
+
+		for (int i = 0; i < n; i++) {
+			System.out.print("*");
+		}
+
+	}
 
 }

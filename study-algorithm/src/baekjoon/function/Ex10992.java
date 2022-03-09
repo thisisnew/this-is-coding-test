@@ -14,7 +14,6 @@ public class Ex10992 {
 
 			if (i == 0) {
 				drawFirstStar(stars);
-				System.out.println();
 				continue;
 			}
 
@@ -34,13 +33,10 @@ public class Ex10992 {
 		int n = stars;
 
 		for (int i = 0; i < n; i++) {
-			if (i == n - 1) {
-				System.out.print("*");
-			} else {
-				System.out.print(" ");
-			}
+			System.out.print(" ");
 		}
-
+		
+		System.out.println("*");
 	}
 
 	static void drawStarsAll(int stars) {

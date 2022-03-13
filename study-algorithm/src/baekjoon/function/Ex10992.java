@@ -31,17 +31,6 @@ public class Ex10992 {
 			}
 	}
 
-	static void drawFirstStar(int stars) {
-
-		int n = stars;
-
-		for (int i = 1; i < n; i++) {
-			System.out.print(" ");
-		}
-
-		System.out.println("*");
-	}
-
 	static void drawStarsAll(int stars) {
 
 		int n = stars * 2 - 1;

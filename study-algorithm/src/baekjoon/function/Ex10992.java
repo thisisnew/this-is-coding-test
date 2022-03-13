@@ -8,24 +8,27 @@ public class Ex10992 {
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-		int stars = Integer.parseInt(br.readLine());
+		int n = Integer.parseInt(br.readLine());
 
-		for (int i = 0; i < stars; i++) {
-
-			if (i == 0) {
-				drawFirstStar(stars);
-				continue;
+		 for(int i=1; i<n; i++) {
+	        	System.out.printf(" ");
+	        }System.out.println("*");
+	        
+	        for(int i=2; i<=n-1; i++) {
+	        	for(int j=1; j<=n-i; j++) {
+	        		System.out.printf(" ");
+	        	} System.out.printf("*");
+	        	for(int j=1; j<=(i-1)*2-1; j++) {
+	        		System.out.printf(" ");
+	        	}System.out.println("*");
+	        	
+	        }
+	        
+	        if(n!=1) {
+				for(int z=1; z<2*n; z++) {
+					System.out.printf("*");
+				}
 			}
-
-			if (i == stars - 1) {
-				drawStarsAll(stars);
-				System.out.println();
-				continue;
-			}
-
-			drawStarsStartAndEnd(stars);
-			System.out.println();
-		}
 	}
 
 	static void drawFirstStar(int stars) {

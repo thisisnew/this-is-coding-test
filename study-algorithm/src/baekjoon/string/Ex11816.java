@@ -29,10 +29,10 @@ public class Ex11816 {
 	}
 
 	static String calculateOctalToDecimal(String input) {
-		return String.valueOf(Integer.valueOf(Integer.parseInt(input.substring(1),8)));
+		return String.valueOf(Integer.valueOf(Integer.parseInt(input.substring(1), 8)));
 	}
 
 	static String calculateHexadecimalToDeciaml(String input) {
-		return String.valueOf(Integer.valueOf(Integer.parseInt(input.substring(2),16)));
+		return String.valueOf(Integer.valueOf(Integer.parseInt(input.substring(2), 16)));
 	}
 }

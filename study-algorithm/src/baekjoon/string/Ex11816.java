@@ -30,22 +30,22 @@ public class Ex11816 {
 
 	static int calculateOctalToDecimal(String input) {
 		String result = "";
-		
+
 		for (int i = 1; i < input.length(); i++) {
 			result += input.charAt(i);
 		}
-		
+
 		return Integer.valueOf(result, 8);
 	}
 
 	static int calculateHexadecimalToDeciaml(String input) {
 		String result = "";
-		
+
 		for (int i = 2; i < input.length(); i++) {
 			result += input.charAt(i);
-		} 
-		
+		}
+
 		return Integer.valueOf(result, 16);
 	}
-	
+
 }

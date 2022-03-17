@@ -10,33 +10,14 @@ public class Ex11816 {
 
 		String input = br.readLine();
 
-		char i0 = input.charAt(0);
-		char i1 = input.charAt(1);
-
-		int answer = Integer.parseInt(input);
-
-		if (i0 != '0') {
-			System.out.println(answer);
+		if (input.charAt(0) != '0') {
+			System.out.println(input);
 		} else {
-
-			if (i1 == 'X') {
-				answer = calculateHexadecimalToDeciaml(input);
+			if (input.charAt(1) != 'X') {
+				System.out.println(Integer.valueOf(Integer.parseInt(input.substring(1), 8)));
 			} else {
-				answer = calculateOctalToDecimal(input);
+				System.out.println(Integer.valueOf(Integer.parseInt(input.substring(2), 16)));
 			}
-
-			System.out.println(answer);
 		}
-
-	}
-
-	// 8진수
-	static int calculateOctalToDecimal(String input) {
-		return Integer.valueOf(Integer.parseInt(input.substring(1), 8));
-	}
-
-	// 16진수
-	static int calculateHexadecimalToDeciaml(String input) {
-		return Integer.valueOf(Integer.parseInt(input.substring(2), 16));
 	}
 }

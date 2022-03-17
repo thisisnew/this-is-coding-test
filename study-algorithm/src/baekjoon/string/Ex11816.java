@@ -27,7 +27,8 @@ public class Ex11816 {
 
 		System.out.println(answer);
 	}
-
+	
+	//16진수
 	static int calculateOctalToDecimal(String input) {
 		String result = "";
 
@@ -38,6 +39,7 @@ public class Ex11816 {
 		return Integer.valueOf(result, 8);
 	}
 
+	//8진수
 	static int calculateHexadecimalToDeciaml(String input) {
 		String result = "";
 

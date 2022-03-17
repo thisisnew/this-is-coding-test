@@ -15,17 +15,19 @@ public class Ex11816 {
 
 		int answer = Integer.parseInt(input);
 
-		if (i0 == '0') {
+		if (i0 != '0') {
+			System.out.println(answer);
+		} else {
 
 			if (i1 == 'X') {
 				answer = calculateHexadecimalToDeciaml(input);
 			} else {
-				answer = calculateHexadecimalToDeciaml(input);
+				answer = calculateOctalToDecimal(input);
 			}
 
+			System.out.println(answer);
 		}
 
-		System.out.println(answer);
 	}
 
 	// 8Áø¼ö

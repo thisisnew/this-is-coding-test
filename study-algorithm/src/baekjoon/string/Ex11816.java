@@ -13,14 +13,14 @@ public class Ex11816 {
 		char i0 = input.charAt(0);
 		char i1 = input.charAt(1);
 
-		String answer = input;
+		int answer = Integer.parseInt(input);
 
 		if (i0 == '0') {
 
 			if (i1 == 'X') {
-				answer = calculateHexadecimalToDeciaml(answer);
+				answer = calculateHexadecimalToDeciaml(input);
 			} else {
-				answer = calculateHexadecimalToDeciaml(answer);
+				answer = calculateHexadecimalToDeciaml(input);
 			}
 
 		}
@@ -28,11 +28,24 @@ public class Ex11816 {
 		System.out.println(answer);
 	}
 
-	static String calculateOctalToDecimal(String input) {
-		return String.valueOf(Integer.valueOf(Integer.parseInt(input.substring(1), 8)));
+	static int calculateOctalToDecimal(String input) {
+		String result = "";
+		
+		for (int i = 1; i < input.length(); i++) {
+			result += input.charAt(i);
+		}
+		
+		return Integer.valueOf(result, 8);
 	}
 
-	static String calculateHexadecimalToDeciaml(String input) {
-		return String.valueOf(Integer.valueOf(Integer.parseInt(input.substring(2), 16)));
+	static int calculateHexadecimalToDeciaml(String input) {
+		String result = "";
+		
+		for (int i = 2; i < input.length(); i++) {
+			result += input.charAt(i);
+		} 
+		
+		return Integer.valueOf(result, 16);
 	}
+	
 }

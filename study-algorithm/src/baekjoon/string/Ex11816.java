@@ -28,25 +28,13 @@ public class Ex11816 {
 		System.out.println(answer);
 	}
 	
-	//16진수
+	//8진수
 	static int calculateOctalToDecimal(String input) {
-		String result = "";
-
-		for (int i = 1; i < input.length(); i++) {
-			result += input.charAt(i);
-		}
-
-		return Integer.valueOf(result, 8);
+		return Integer.valueOf(Integer.parseInt(input.substring(1),8));
 	}
 
-	//8진수
+	//16진수
 	static int calculateHexadecimalToDeciaml(String input) {
-		String result = "";
-
-		for (int i = 2; i < input.length(); i++) {
-			result += input.charAt(i);
-		}
-
-		return Integer.valueOf(result, 16);
+		return Integer.valueOf(Integer.parseInt(input.substring(2),16));
 	}
 }

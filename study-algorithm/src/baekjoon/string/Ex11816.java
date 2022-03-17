@@ -47,5 +47,4 @@ public class Ex11816 {
 
 		return Integer.valueOf(result, 16);
 	}
-
 }

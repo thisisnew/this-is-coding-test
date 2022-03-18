@@ -11,8 +11,5 @@ public class Ex14376 {
 
 		String input = br.readLine();
 
-		
-		
-	
 	}
 }

@@ -28,6 +28,7 @@ public class Ex10807 {
 	
 		}
 		
-		System.out.println(numMap.get(v));
+		int result = numMap.get(v);
+		System.out.println(result > 0 ? result : 0 );
 	}
 }

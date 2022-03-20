@@ -13,11 +13,11 @@ public class Ex14645 {
 		int k = Integer.parseInt(st.nextToken());
 
 		for (int i = 0; i < n; i++) {
-			 st = new StringTokenizer(br.readLine());
-			 int a = Integer.parseInt(st.nextToken());
-				int b = Integer.parseInt(st.nextToken());
+			st = new StringTokenizer(br.readLine());
+			int a = Integer.parseInt(st.nextToken());
+			int b = Integer.parseInt(st.nextToken());
 		}
-		
+
 		System.out.println("ºñ¿ÍÀÌ");
 	}
 }

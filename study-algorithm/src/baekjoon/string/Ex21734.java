@@ -16,7 +16,7 @@ public class Ex21734 {
 	private static void print(String input) {
 
 		for (int i = 0; i < input.length(); i++) {
-			int num = (int)input.charAt(i);
+			int num = (int) input.charAt(i);
 
 			System.out.println(makeString(makeCount(num), input.charAt(i)));
 		}
@@ -30,7 +30,7 @@ public class Ex21734 {
 		int cnt = 0;
 
 		for (int i = 0; i < n.length(); i++) {
-			cnt += (int)(n.charAt(i) - '0');
+			cnt += (int) (n.charAt(i) - '0');
 		}
 
 		return cnt;

@@ -11,10 +11,9 @@ public class Ex21964 {
 		int n = Integer.parseInt(br.readLine());
 		String input = br.readLine();
 
-		
-		if(n > 5) {
-			System.out.println(input.substring(input.length()-5, input.length()));
-		}else {
+		if (n > 5) {
+			System.out.println(input.substring(input.length() - 5, input.length()));
+		} else {
 			System.out.println(input);
 		}
 	}

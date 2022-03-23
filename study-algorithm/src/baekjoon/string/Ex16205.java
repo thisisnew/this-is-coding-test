@@ -18,10 +18,11 @@ public class Ex16205 {
 		int n = Integer.parseInt(st.nextToken());
 		String input = st.nextToken();
 		
-		String words = splitWord(input,n);
+		String word = splitWord(input,n);
 		
-		printCamelCase(words);
-		
+		printCamelCase(word);
+		printSnakeCase(word);
+		printPascalCase(word);
 	}
 
 	private static String splitWord(String input, int n) {

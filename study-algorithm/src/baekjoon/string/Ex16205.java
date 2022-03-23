@@ -74,8 +74,24 @@ public class Ex16205 {
 
 	private static void printCamelCase(String word) {
 
+		String camel = "";
+		String[] words = word.split("_");
 		
-
+		for(int i = 0; i<words.length; i++) {
+			String wordProp = words[i];
+			
+			if(i == 0) {
+				camel += wordProp;
+				continue;
+			}
+			
+			String first = wordProp.substring(0, 1).toUpperCase();
+			String remain = wordProp.substring(1);
+			
+			camel += (first + remain);			
+		}
+		
+		System.out.println(camel);
 	}
 
 	private static void printSnakeCase(String word) {

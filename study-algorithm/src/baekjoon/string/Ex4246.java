@@ -70,7 +70,7 @@ public class Ex4246 {
 			
 			lon++;
 			
-			if(lon == (len/n)) {
+			if(lon == len) {
 				lat++;
 				lon = 0;
 			}

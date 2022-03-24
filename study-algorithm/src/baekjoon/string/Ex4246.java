@@ -7,6 +7,8 @@ import java.io.InputStreamReader;
 public class Ex4246 {
 
 	static int n = 0;
+	static int len = 0;
+	static String input;
 	
 	public static void main(String[] args) throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -18,7 +20,8 @@ public class Ex4246 {
 				break;
 			}
 			
-			String input = br.readLine();
+			input = br.readLine();
+			len = input.length()/n;
 			
 			char[][] arr = makeArr(input);
 			
@@ -28,7 +31,7 @@ public class Ex4246 {
 	
 	private static char[][] makeArr(String input){
 		
-		char[][] arr = new char[n][n];
+		char[][] arr = new char[len][n];
 		boolean isReverse = false;
 		int lat = 0;
 		int lon = 0;
@@ -38,7 +41,7 @@ public class Ex4246 {
 			char c = input.charAt(i); 
 			
 			if(isReverse) {
-				arr[lon][n - lat] = c;
+				arr[lon][n - lat -1] = c;
 			} else {
 				arr[lon][lat] = c; 
 			}
@@ -46,6 +49,7 @@ public class Ex4246 {
 			lat++;
 			
 			if(lat == n) {
+				isReverse = !isReverse;
 				lon++;
 				lat = 0;
 			}
@@ -60,11 +64,13 @@ public class Ex4246 {
 		int lat = 0;
 		int lon = 0;
 		
-		for(int i=0; i<arr.length; i++) { 
+		for(int i=0; i<input.length(); i++) { 
 			
-			result += arr[++lon][lat]; 
+			result += arr[lon][lat]; 
 			
-			if(lon == n) {
+			lon++;
+			
+			if(lon == (len/n)) {
 				lat++;
 				lon = 0;
 			}

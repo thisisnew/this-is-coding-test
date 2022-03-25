@@ -35,6 +35,12 @@ public class Ex15239 {
 				continue;
 			}
 			
+			if(!hasMoreThenOneSymbol(pass)) {
+				System.out.println("invalid");
+				continue;
+			}
+			
+			System.out.println("valid");
 		}
 		
 	}
@@ -74,6 +80,17 @@ public class Ex15239 {
 		
 		for(int i=0; i<pass.length(); i++) {
 			if(pass.charAt(i) >= 'a' && pass.charAt(i) <= 'z') {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	private static boolean hasMoreThenOneSymbol(String pass) {
+		
+		for(int i=0; i<pass.length(); i++) {
+			if("+_)(*&^%$#@!./,;{}".contains(String.valueOf(pass.charAt(i)))) {
 				return true;
 			}
 		}

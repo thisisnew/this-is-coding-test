@@ -25,6 +25,16 @@ public class Ex15239 {
 				continue;
 			}
 			
+			if(!hasMoreThenOneUpperCase(pass)) {
+				System.out.println("invalid");
+				continue;
+			}
+			
+			if(!hasMoreThenOneLowerCase(pass)) {
+				System.out.println("invalid");
+				continue;
+			}
+			
 		}
 		
 	}
@@ -42,6 +52,28 @@ public class Ex15239 {
 		
 		for(int i=0; i<pass.length(); i++) {
 			if(pass.charAt(i) >= '0' && pass.charAt(i) <= '9') {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	private static boolean hasMoreThenOneUpperCase(String pass) {
+		
+		for(int i=0; i<pass.length(); i++) {
+			if(pass.charAt(i) >= 'A' && pass.charAt(i) <= 'Z') {
+				return true;
+			}
+		}
+		
+		return false;
+	}
+	
+	private static boolean hasMoreThenOneLowerCase(String pass) {
+		
+		for(int i=0; i<pass.length(); i++) {
+			if(pass.charAt(i) >= 'a' && pass.charAt(i) <= 'z') {
 				return true;
 			}
 		}

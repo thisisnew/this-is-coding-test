@@ -14,6 +14,17 @@ public class Ex15239 {
 		for(int i=0; i<n; i++) {
 			int len = Integer.parseInt(br.readLine());
 			String pass = br.readLine();
+			
+			if(!isValidLength(len)) {
+				System.out.println("invalid");
+				continue;
+			}
+			
+			if(!hasMoreThenOneDigit(pass)) {
+				System.out.println("invalid");
+				continue;
+			}
+			
 		}
 		
 	}
@@ -22,6 +33,17 @@ public class Ex15239 {
 		
 		if(len >= 12) {
 			return true;
+		}
+		
+		return false;
+	}
+	
+	private static boolean hasMoreThenOneDigit(String pass) {
+		
+		for(int i=0; i<pass.length(); i++) {
+			if(pass.charAt(i) >= '0' && pass.charAt(i) <= '9') {
+				return true;
+			}
 		}
 		
 		return false;
